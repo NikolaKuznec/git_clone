@@ -1,15 +1,34 @@
 {
   "name": "video-studio-pro",
-  "version": "1.0.0",
-  "description": "Unified agent skill for video analysis, transcription, search, editing, repurposing, generation and deterministic rendering.",
+  "version": "1.1.0",
+  "description": "Unified multi-agent skill for video analysis, transcription, search, editing, repurposing, generation, deterministic rendering and independent QA.",
   "entrypoint": "SKILL.md",
+  "orchestration": "ORCHESTRATION.md",
   "category": "video",
   "languages": ["ru", "en"],
+  "agents": [
+    {
+      "name": "research-agent",
+      "path": "agents/research-agent.md",
+      "role": "evidence-backed source analysis and pipeline planning"
+    },
+    {
+      "name": "build-agent",
+      "path": "agents/build-agent.md",
+      "role": "reproducible editing, generation and rendering"
+    },
+    {
+      "name": "review-agent",
+      "path": "agents/review-agent.md",
+      "role": "independent technical, content and privacy QA"
+    }
+  ],
   "requires": {
     "recommended": ["ffmpeg", "ffprobe", "yt-dlp", "node>=18", "python>=3.10"],
     "optional": ["Whisper-compatible ASR", "OCR engine", "Remotion", "HyperFrames", "video generation APIs"]
   },
   "capabilities": [
+    "multi-agent-orchestration",
     "video-analysis",
     "transcription",
     "keyframes",
@@ -23,8 +42,17 @@
     "video-generation-routing",
     "html-video-rendering",
     "remotion-rendering",
-    "quality-assurance"
+    "checkpoint-resume",
+    "artifact-provenance",
+    "independent-quality-assurance",
+    "controlled-revision-loop"
   ],
+  "quality_gate": {
+    "minimum_score": 85,
+    "maximum_automatic_revision_cycles": 2,
+    "required_report": "artifacts/qa-report.json"
+  },
   "created_at": "2026-07-26",
+  "updated_at": "2026-07-26",
   "provenance": "See references/SOURCES.md"
 }
