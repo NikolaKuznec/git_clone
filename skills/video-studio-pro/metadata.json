@@ -1,0 +1,30 @@
+{
+  "name": "video-studio-pro",
+  "version": "1.0.0",
+  "description": "Unified agent skill for video analysis, transcription, search, editing, repurposing, generation and deterministic rendering.",
+  "entrypoint": "SKILL.md",
+  "category": "video",
+  "languages": ["ru", "en"],
+  "requires": {
+    "recommended": ["ffmpeg", "ffprobe", "yt-dlp", "node>=18", "python>=3.10"],
+    "optional": ["Whisper-compatible ASR", "OCR engine", "Remotion", "HyperFrames", "video generation APIs"]
+  },
+  "capabilities": [
+    "video-analysis",
+    "transcription",
+    "keyframes",
+    "ocr",
+    "metadata",
+    "moment-analysis",
+    "video-search",
+    "ffmpeg-editing",
+    "captions",
+    "vertical-repurpose",
+    "video-generation-routing",
+    "html-video-rendering",
+    "remotion-rendering",
+    "quality-assurance"
+  ],
+  "created_at": "2026-07-26",
+  "provenance": "See references/SOURCES.md"
+}
